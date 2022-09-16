@@ -32,17 +32,14 @@ cy.get('img[alt=Cart]').click()
 cy.contains('PROCEED TO CHECKOUT').click() 
 cy.contains('Place Order').click()
 cy.contains('Proceed').click()
-<<<<<<< HEAD
-cy.get('.errorAlert').should('have.text','Please accept Terms & Conditions - Required')  //assesrtion to verify text
-//This is master file 
-=======
 
-cy.get('.errorAlert').should('have.text','Please accept Terms & Conditions - Required')
-//this is test 2 from rahul branch 
 
 
 cy.get('.errorAlert').should('have.text','Please accept Terms & Conditions - Required') 
 
->>>>>>> f620d19d6c7f05627448cc8cd6106d51afe1c37f
+
+//rahul Branch changes--made new changes to rahul branch 
+
+
     })
 })
