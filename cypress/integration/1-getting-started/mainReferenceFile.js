@@ -33,11 +33,12 @@ cy.contains('PROCEED TO CHECKOUT').click()
 cy.contains('Place Order').click()
 cy.contains('Proceed').click()
 
-cy.get('.errorAlert').should('have.text','Please accept Terms & Conditions - Required')
-//this is test 2 from rahul branch 
+cy.get('.errorAlert').should('have.text','Please accept Terms & Conditions - Required')  //assesrtion to verify text
 
 
 cy.get('.errorAlert').should('have.text','Please accept Terms & Conditions - Required') 
+
+//rahul Branch changes--made new changes to rahul branch 
 
     })
 })
