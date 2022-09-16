@@ -33,6 +33,6 @@ cy.contains('PROCEED TO CHECKOUT').click()
 cy.contains('Place Order').click()
 cy.contains('Proceed').click()
 cy.get('.errorAlert').should('have.text','Please accept Terms & Conditions - Required')  //assesrtion to verify text
-//This is test
+//This is master file 
     })
 })
