@@ -21,7 +21,7 @@ describe('My checkbox check test case',function(){
             }
         })
  
-//Click on the rasio buttons with cyperss
+//Click on the radio buttons with cyperss
         cy.get('#autocomplete').should('have.value','India')
         cy.get('input[name=radioButton]').check(['radio1','radio2']).should('have.value','radio1')
         cy.get('input[name=radioButton]')
@@ -33,6 +33,7 @@ describe('My checkbox check test case',function(){
         cy.get('#show-textbox').should('be.visible').click()
         cy.get('#displayed-text').should('be.visible').should('have.value');
         
+//tutorial 21 popups handeling 
 
 
 

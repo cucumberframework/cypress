@@ -25,7 +25,6 @@ if(textVegetable.includes('Cashews')){
    
 }
 
-
 })
 
 cy.get('img[alt=Cart]').click()
