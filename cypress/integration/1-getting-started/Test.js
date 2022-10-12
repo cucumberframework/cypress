@@ -27,7 +27,9 @@ describe('My First suite',function(){
 //     })
 it('My first test case',function(){
     cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/");
-    
+    cy.get(".search-keyword").type("Ca");
+    cy.wait(2000);
+    cy.get(".products").should("have.length",4);
 
 })
 
