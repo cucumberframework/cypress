@@ -29,7 +29,15 @@ it('My first test case',function(){
     cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/");
     cy.get(".search-keyword").type("Ca");
     cy.wait(2000);
-    cy.get(".product").should("have.length",5);
+    cy.get(".products:visible").find(".product:visible").each(($e1,index,$List)=>{
+        const textElement=$e1.find(".product-name").text(); 
+        if(textElement.includes("Carrot")){
+            cy.wrap($e1).find("type[type=button]").click(); 
+        }
+
+    })
+
+    
 
 })
 
