@@ -37,6 +37,9 @@ it('My first test case',function(){
 
     })
 
+cy.get(".quantity").then(function(quantityElement){
+cy.log(quantityElement.text());
+})
     
 
 })
