@@ -17,8 +17,7 @@ it('My first test case',function(){
 cy.get(".quantity").then(function(quantityElement){
 cy.log(quantityElement.text());
 })
-    //Git stash change test "Rahul branch"
-    //Rahul Branch stash 2 
+    
 
 })
 
