@@ -18,7 +18,8 @@ cy.get(".quantity").then(function(quantityElement){
 cy.log(quantityElement.text());
 })
     //Added content to stash in rahul branch
-    
+    //added another content to stash file 
+
 
 })
 
