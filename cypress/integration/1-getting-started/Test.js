@@ -36,7 +36,7 @@ it('My first test case',function(){
         }
 
     })
-
+//if we want to handle promise for the variables which you dont want to code as per cypress standard, we need to handle promise with below line of code
 cy.get(".quantity").then(function(quantityElement){
 cy.log(quantityElement.text());
 })
