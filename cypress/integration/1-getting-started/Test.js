@@ -17,6 +17,7 @@ it('My first test case',function(){
 cy.get(".quantity").then(function(quantityElement){
 cy.log(quantityElement.text());
 })
+    //Added content to stash in rahul branch
     
 
 })
