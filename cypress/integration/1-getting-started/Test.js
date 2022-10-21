@@ -9,7 +9,11 @@ it('My first test case',function(){
     cy.get(".products:visible").find(".product:visible").each(($e1,index,$List)=>{
         const textElement=$e1.find(".product-name").text(); 
         if(textElement.includes("Carrot")){
-            cy.wrap($e1).find("button[type=button]").click(); 
+            
+         
+            cy.wrap($e1).find("button[type=button]").click().then(function(addToKartButton){
+                cy.log(addToKartButton.text());
+            }) 
         }
 
     })
@@ -19,7 +23,8 @@ cy.get('@productQuantity').then(function(quantityElement){
 cy.log(quantityElement.text());
 })
     
-    
+  
+
 
 })
 
