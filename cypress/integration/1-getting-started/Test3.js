@@ -13,7 +13,17 @@ describe('Automation practice', function () {
     //<<<<<<<<<<<<<<<<<<<<<<-----------------------------Handling checkbox code ends here 
 
     //Code to handle static dropdown ------------------->>>
-    cy.get('select').select("Option2").should('have.value', 'option1');
+    cy.get('select').select("Option2").should('have.value', 'option2');
+
+    //handling dynamic dropdowns ----------------> 
+
+    cy.get("input#autocomplete").type("ind"); 
+    cy.get(".ui-menu-item-wrapper").each(($e1,index,$list) => {
+        if($e1.text()=== 'India'){
+           cy.wrap($e1).click();
+        }
+
+    })
 
 })
 
