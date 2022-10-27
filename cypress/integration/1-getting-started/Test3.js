@@ -19,10 +19,10 @@ describe('Automation practice', function () {
 
         //<<<<<<<<<<<<<<<<<<<<<<-----------------------------Handling checkbox code ends here 
 
-        //Code to handle static dropdown ------------------->>>
+        /* ----------------------Code to handle static dropdown ------------------- */
         cy.get('select').select("Option2").should('have.value', 'option2');
 
-        //handling dynamic dropdowns ----------------> 
+        /*------------------------handling dynamic dropdowns ----------------> */
 
         cy.get("input#autocomplete").type("ind");
         cy.get(".ui-menu-item-wrapper").each(($e1, index, $list) => {
@@ -37,11 +37,12 @@ describe('Automation practice', function () {
         cy.get("#show-textbox").click();
         cy.get("#displayed-text").should("be.visible");
 
-        /* Method 1-->Below is the code to check and uncheck the redio buttons  
-        cy.get(".radioButton").each(($e1, index, $list) => {
+        /* -------------Method 1-->Below is the code to check and uncheck the redio buttons  -------------*/
+        /* cy.get(".radioButton").each(($e1, index, $list) => {
             cy.wrap($e1).click(); 
-        })*/
-        /* Method 2 -- > To checck and uncheck the radio buttons  */
+        }) */
+
+        /* ------------------------Method 2 -- > To checck and uncheck the radio buttons  */
         cy.get("input[value='radio2']").check().should("be.checked");
     })
 })
