@@ -12,7 +12,7 @@ describe('Automation practice', function () {
             cy.get("input[type='checkbox']").check(['option1', 'option2', 'option3']);
             cy.get("input[type='checkbox']").uncheck(['option1', 'option2', 'option3']); */
 
-            /* This block is alternate method to check and uncheck hte checkboxes  */
+        /* This block is alternate method to check and uncheck hte checkboxes  */
         cy.get("input[type='checkbox'").each(($e1, index, $list) => {
             cy.wrap($e1).click();
         })
@@ -36,5 +36,12 @@ describe('Automation practice', function () {
         cy.get("#displayed-text").should("not.be.visible");
         cy.get("#show-textbox").click();
         cy.get("#displayed-text").should("be.visible");
+
+        /* Method 1-->Below is the code to check and uncheck the redio buttons  
+        cy.get(".radioButton").each(($e1, index, $list) => {
+            cy.wrap($e1).click(); 
+        })*/
+        /* Method 2 -- > To checck and uncheck the radio buttons  */
+        cy.get("input[value='radio2']").check().should("be.checked");
     })
 })
