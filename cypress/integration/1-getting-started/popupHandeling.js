@@ -17,6 +17,11 @@ describe('Automation practice', function () {
         cy.on("window.confirm",(str)=>{
             expect(str).to.equal("Hello , Are you sure you want to confirm?")
         })
+        
+/* Added code to handle multiple tabs , go forward and go backward  */
+        cy.get("#opentab").invoke("removeAttr","target").click();
+        cy.go("back");
+        cy.go("forward");
 
     })
 })
