@@ -17,11 +17,13 @@ describe('Automation practice', function () {
         cy.on("window.confirm",(str)=>{
             expect(str).to.equal("Hello , Are you sure you want to confirm?")
         })
-        
+
 /* Added code to handle multiple tabs , go forward and go backward  */
         cy.get("#opentab").invoke("removeAttr","target").click();
+        cy.url().should("include","https://www.rahulshettyacademy.com/"); 
         cy.go("back");
+        cy.url().should("include","AutomationPractice");
         cy.go("forward");
-
+        cy.url().should("include","https://www.rahulshettyacademy.com/")
     })
 })
