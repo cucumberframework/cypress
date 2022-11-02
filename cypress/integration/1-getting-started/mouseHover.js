@@ -1,7 +1,7 @@
 /// <reference types="Cypress"/>
 
 //const { get } = require("cypress/types/lodash");
-
+//Tutorial-38
 describe('Automation practice', function () {
 
     it('popupHandeling', function () {
@@ -16,6 +16,8 @@ describe('Automation practice', function () {
 
             cy.contains("Reload").click({force:true});
             cy.url().should("include","rahulshettyacademy.com/AutomationPractice/");
+
+
 
     })
 })
