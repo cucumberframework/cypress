@@ -13,17 +13,27 @@ describe('Automation practice', function () {
             //Simple Alert --compare the string which we get from the alert box with the expected string 
             expect(str).to.equal("Hello , share this practice page and share your knowledge");
         })
-            //Confirmation alert -- 
-        cy.on("window.confirm",(str)=>{
+        //Confirmation alert -- 
+        cy.on("window.confirm", (str) => {
             expect(str).to.equal("Hello , Are you sure you want to confirm?")
         })
 
-/* Added code to handle multiple tabs , go forward and go backward  */
-        cy.get("#opentab").invoke("removeAttr","target").click();
-        cy.url().should("include","https://www.rahulshettyacademy.com/"); 
+        /* Added code to handle multiple tabs , go forward and go backward */
+        cy.get("#opentab").invoke("removeAttr", "target").click();
+        cy.url().should("include", "https://www.rahulshettyacademy.com/");
         cy.go("back");
-        cy.url().should("include","AutomationPractice");
+        cy.url().should("include", "AutomationPractice");
         cy.go("forward");
-        cy.url().should("include","https://www.rahulshettyacademy.com/")
+        cy.url().should("include", "https://www.rahulshettyacademy.com/")
+ 
+        /* Added code to open new tab or window without deleting the attribute 
+        how to get the property attribute from any element   */
+        
+        cy.get("#opentab").then(function(hrefAttribute){
+            const hrefAttribbuteValue=hrefAttribute.prop("href"); 
+            cy.log(hrefAttribbuteValue)
+            cy.visit(hrefAttribbuteValue)                           //This will NOT work as cross domain navigation is not allowed by cypress
+        })
+
     })
 })
