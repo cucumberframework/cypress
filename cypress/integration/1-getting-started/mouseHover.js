@@ -12,6 +12,10 @@ describe('Automation practice', function () {
         cy.url().should("include","top");                       //Code to check the URL if it contains the text as top
 
 
+        /* clicking on hidden elements forcablly without hovering on the element  */
+
+            cy.contains("Reload").click({force:true});
+            cy.url().should("include","rahulshettyacademy.com/AutomationPractice/");
 
     })
 })
