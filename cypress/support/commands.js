@@ -10,13 +10,20 @@
 //
 //
 // -- This is a parent command --
+
+import LoginPage from "../e2e/1-getting-started/PageObject/LoginPage.cy"
+
+  const login=new LoginPage();
+
+
  Cypress.Commands.add('LoginIntoApp', (url,email, password) => {
     cy.visit(url);
-    cy.get("input[name='email']").type(email);
-    cy.get("input[name='password']").type(password);
-    cy.contains("Login").click();
+    login.getEmail().type(email);
+    //cy.pause()                                  //this will pause the execution and to resume the execution we need to click on the play button from the cypress dashboard
+   login.getpassword().type(password);
+     login.getClickButton().click();
     cy.get("i[class='users icon']").click();
-    cy.get("a[href='/contacts/new']").click();
+    cy.get("a[href='/contacts/new']").click(); 
   
 
   })
