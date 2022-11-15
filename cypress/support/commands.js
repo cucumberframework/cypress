@@ -24,9 +24,9 @@ import LoginPage from "../e2e/1-getting-started/PageObject/LoginPage.cy"
      login.getClickButton().click();
     cy.get("i[class='users icon']").click();
     cy.get("a[href='/contacts/new']").click(); 
-  
+    })
 
-  })
+    
 
 //
 // -- This is a child command --

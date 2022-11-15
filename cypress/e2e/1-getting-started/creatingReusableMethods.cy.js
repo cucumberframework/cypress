@@ -2,12 +2,14 @@
 ///  <reference types="cypress-iframe" />
 
 import 'cypress-iframe'
+import ContactDetails from './PageObject/ContactDetails.cy';
 import HomePage from './PageObject/HomePage.cy'
 
 //Tutorial-47,Tut-48 
 describe('Tutorial-43 to Tutorial -47--Hooks Explaination', function () {
 
     const homePage= new HomePage(); 
+    const contactDetail=new ContactDetails();
 
     beforeEach(function () {
         /* code for fixtures- -taking data from external files  */
@@ -29,6 +31,14 @@ describe('Tutorial-43 to Tutorial -47--Hooks Explaination', function () {
         
         homePage.getContactsIcon().click();
         homePage.getCreateContactButton().click();
+        contactDetail.getFirstName().type(this.loginData.FirstName); 
+        contactDetail.getLastName().type(this.loginData.LastName); 
+        contactDetail.getMiddleName().type(this.loginData.MiddleName);
+        contactDetail.getSaveButton().click();
+        homePage.getSettingsButton().click(); 
+        homePage.getLogOutButton().click();
+        homePage.getSearchField().type('this.loginData.FirstName{enter}')
+
     })
 
 
