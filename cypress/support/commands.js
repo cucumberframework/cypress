@@ -10,8 +10,10 @@
 //
 //
 // -- This is a parent command --
-
+/// <reference types="Cypress"/>
+///  <reference types="cypress-iframe" />
 import LoginPage from "../e2e/1-getting-started/PageObject/LoginPage.cy"
+import 'cypress-iframe'
 
   const login=new LoginPage();
 
@@ -24,6 +26,30 @@ import LoginPage from "../e2e/1-getting-started/PageObject/LoginPage.cy"
      login.getClickButton().click();
     cy.get("i[class='users icon']").click();
     cy.get("a[href='/contacts/new']").click(); 
+    })
+
+
+    Cypress.Commands.add('LoginIntoSmartoffice',(url,officename,username,password)=>{
+      cy.visit(url); 
+
+      cy.get('#frame_cache_0').then($firstIframe => {
+        const $officeName = $firstIframe.contents().find('#Office');
+        cy.wrap($officeName).type(officename)
+      });
+      cy.get('#frame_cache_0').then($firstIframe => {
+        const $userName = $firstIframe.contents().find('#User');
+        cy.wrap($userName).type(username)
+      });
+      cy.get('#frame_cache_0').then($firstIframe => {
+        const $password = $firstIframe.contents().find('#Pwd');
+        cy.wrap($password).type(password)
+      });
+      cy.get('#frame_cache_0').then($firstIframe => {
+        const $submitButton = $firstIframe.contents().find('#submit');
+        cy.wrap($submitButton).click();
+      });
+        
+
     })
 
     
