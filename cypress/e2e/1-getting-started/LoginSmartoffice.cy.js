@@ -29,11 +29,10 @@ it('Iframe hendeling', function () {
         homepage.getAddContactOption().click();
         cy.wait(10000)
 
-        const element = cy.loadFramesofPopup()
-        element.type("Ackerman")
+        const elem=cy.loadFramesofPopup('#lastname');
+        elem.type("Ackerman")
 
         // homepage.getAdvanceSearch().click();
-
 
     })
 

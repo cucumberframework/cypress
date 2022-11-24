@@ -51,14 +51,15 @@ import 'cypress-iframe'
         
 
     })
-    Cypress.Commands.add('loadFramesofPopup',()=>{
+    Cypress.Commands.add('loadFramesofPopup',(locator)=>{
       cy.get("iframe[class='embed-responsive-item']").then($firstIframe => {
         const $secondIframeReference = $firstIframe.contents().find('#ebRealModalFrame');
         // Now we are accessing the second iframe
         cy.get($secondIframeReference).then($secondIframe => {
-            const $elementYouWant = $secondIframe.contents().find('#lastname');
+            const $elementYouWant = $secondIframe.contents().find(locator)
+            
             return $elementYouWant;
-            cy.wrap($elementYouWant).type('Ackerman')
+           
         });
     });
 
