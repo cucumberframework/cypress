@@ -10,5 +10,11 @@ module.exports = defineConfig({
       
     },
   },
+  "env":
+  {
+    "url":"https://sodev.ebixcrm.com/ms/index.htm"
+  },
+  "defaultCommandTimeout":10000
 })
+
 

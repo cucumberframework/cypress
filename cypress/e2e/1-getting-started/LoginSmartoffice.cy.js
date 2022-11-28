@@ -18,10 +18,14 @@ it('Iframe hendeling', function () {
         cy.fixture('objectRepo').then(function (elementRepo) {
             this.elementRepo = elementRepo;
             cy.fixture("createNewContact").then(function(newcontact){
-                this.newcontact=newcontact;
+                this.newcontact=newcontact; 
             
        
-        cy.LoginIntoSmartoffice(this.login.url, this.login.officeName, this.login.userName, this.login.password);
+        cy.LoginIntoSmartoffice(Cypress.env("url"), this.login.officeName, this.login.userName, this.login.password);
+        
+        /* Executing particular teston URL -from command prompt 
+        ./node_modules/.bin/cypress run --spec "cypress\e2e\1-getting-started\LoginSmartoffice.cy.js" --headed --browser "edge" --env url=https://www.google.com
+        */
         cy.waitForTime(10);
         homepage.getAddButton().click();
         cy.waitForTime(3);
