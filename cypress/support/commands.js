@@ -65,6 +65,10 @@ import 'cypress-iframe'
 
     })
 
+    Cypress.Commands.add('waitForTime',(timeUnitsinSeconds)=>{
+      cy.wait(timeUnitsinSeconds*1000);
+    })
+
     
 
 //

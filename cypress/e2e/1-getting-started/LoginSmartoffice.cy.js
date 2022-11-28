@@ -12,28 +12,37 @@ describe('Search Contact from SO', function () {
 
 it('Iframe hendeling', function () {
     const homepage = new SOHomePage();
-    const createContactPopup=new createContactPopupElements();
+    const createContactPopup = new createContactPopupElements();
     cy.fixture('SOLoginTestData').then(function (login) {
         this.login = login;
-
+        cy.fixture('objectRepo').then(function (elementRepo) {
+            this.elementRepo = elementRepo;
+            cy.fixture("createNewContact").then(function(newcontact){
+                this.newcontact=newcontact;
+            
+       
         cy.LoginIntoSmartoffice(this.login.url, this.login.officeName, this.login.userName, this.login.password);
-        cy.wait(5000);
-        //homepage.getSearchTextField().type('Rawat'); 
-        // homepage.getSearchIcon().click();
-        // cy.wait(5000);
-        //homepage.getAddButtonFromContactList().click();
-
-
+        cy.waitForTime(10);
         homepage.getAddButton().click();
-        cy.wait(3000)
+        cy.waitForTime(3);
         homepage.getAddContactOption().click();
-        cy.wait(10000)
+       cy.waitForTime(10);
 
-        const elem=cy.loadFramesofPopup('#lastname');
-        elem.type("Ackerman")
+        const lName = cy.loadFramesofPopup(this.elementRepo.lastName);
+        lName.type(this.newcontact.lastname);
+        const fName = cy.loadFramesofPopup(this.elementRepo.firstName);
+        fName.type(this.newcontact.firstname);
+        const suffix = cy.loadFramesofPopup(this.elementRepo.suffix);
+        suffix.type(this.newcontact.suffix);
+        const streetLine1 = cy.loadFramesofPopup(this.elementRepo.streetLine1);
+        streetLine1.type(this.newcontact.streetline1)
+        cy.loadFramesofPopup(this.elementRepo.saveButton).click()
+        
 
-        // homepage.getAdvanceSearch().click();
 
+        
     })
 
+})
+})
 })

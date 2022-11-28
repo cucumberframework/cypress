@@ -1,0 +1,7 @@
+{
+    "lastName": "#lastname",
+    "firstName":"#firstname",
+    "suffix":"#suffix",
+    "streetLine1":"#div_editor_address1",
+    "saveButton":"#save"
+}
